@@ -1,6 +1,5 @@
 
-
-const Account = function (login, email) {
+const Account = function ({login, email}) {
 	this.login = login;
 	this.email = email;
 	this.getInfo = function (login, email) {
@@ -8,11 +7,20 @@ const Account = function (login, email) {
 	}
 }
 
-const mango = new Account('Mangozedog', 'mango@dog.woof');
+console.log(Account.prototype)
 
-mango.getInfo()
+console.log(Account.prototype.getInfo); // function
 
+const mango = new Account({
+  login: 'Mangozedog',
+  email: 'mango@dog.woof',
+});
 
-const poly = new Account('Poly', 'poly@mail.com');
+mango.getInfo(); // Login: Mangozedog, Email: mango@dog.woof
 
-poly.getInfo();
+const poly = new Account({
+  login: 'Poly',
+  email: 'poly@mail.com',
+});
+
+poly.getInfo(); // Login: Poly, Email: poly@mail.com
